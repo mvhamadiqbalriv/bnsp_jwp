@@ -21,3 +21,6 @@ Route::resource('sertifikasi', SkemaController::class);
 Route::get('peserta/edit/{id}', [PesertaController::class, 'edit']);
 Route::put('peserta/update/{id}', [PesertaController::class, 'update'])->name('peserta.update');
 Route::delete('peserta/delete/{id}', [PesertaController::class, 'destroy'])->name('peserta.destroy');
+Route::get('informasi', function() {
+    return view('informasi');
+});
