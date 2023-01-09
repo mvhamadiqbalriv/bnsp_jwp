@@ -1,6 +1,6 @@
 @extends('layout')
 @section('title')
-    Pendaftaran
+    - Pendaftaran
 @endsection
 @section('content')
     <div class="container mt-5">
@@ -67,7 +67,7 @@
               </div>
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button type="submit" class="btn btn-outline-primary mt-3 text-end" data-bs-toggle="modal" data-bs-target="#modalId">
-                  Ubah Data Peserta
+                  Simpan
                 </button>
               </div>
         </form>

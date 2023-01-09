@@ -63,7 +63,7 @@
               @csrf
               <div class="form-group mb-3">
                 <label for="">Kode Skema <sup class="text-danger" title="Wajib diisi">*</sup></label>
-                <input type="text" class="form-control {{ $errors->has('Kd_skema') ? ' is-invalid' : '' }}" name="Kd_skema" value="SKM-" placeholder="Kode Skema" aria-label="Kode Skema" aria-describedby="basic-addon1">
+                <input type="text" class="form-control {{ $errors->has('Kd_skema') ? ' is-invalid' : '' }}" name="Kd_skema" value="{{old('Kd_skema', 'SKM-')}}" placeholder="Kode Skema" aria-label="Kode Skema" aria-describedby="basic-addon1">
                 @if ($errors->has('Kd_skema'))
                     <span class="invalid feedback" role="alert">
                         <small class="text-danger">{{ $errors->first('Kd_skema') }}.</small>
@@ -72,7 +72,7 @@
               </div>
               <div class="form-group mb-3">
                 <label for="">Nama Skema <sup class="text-danger" title="Wajib diisi">*</sup></label>
-                <input type="text" name="Nm_skema" class="form-control {{ $errors->has('Nm_skema') ? ' is-invalid' : '' }}" placeholder="Masukan Nama Skema">
+                <input type="text" name="Nm_skema" value="{{old('Nm_skema')}}" class="form-control {{ $errors->has('Nm_skema') ? ' is-invalid' : '' }}" placeholder="Masukan Nama Skema">
                 @if ($errors->has('Nm_skema'))
                     <span class="invalid feedback" role="alert">
                         <small class="text-danger">{{ $errors->first('Nm_skema') }}.</small>
@@ -81,7 +81,7 @@
               </div>
               <div class="form-group mb-3">
                 <label for="">Jenis <sup class="text-danger" title="Wajib diisi">*</sup></label>
-                <input type="text" name="Jenis" class="form-control {{ $errors->has('Jenis') ? ' is-invalid' : '' }}" placeholder="Masukan Jenis">
+                <input type="text" name="Jenis" value="{{old('Jenis')}}" class="form-control {{ $errors->has('Jenis') ? ' is-invalid' : '' }}" placeholder="Masukan Jenis">
                 @if ($errors->has('Jenis'))
                     <span class="invalid feedback" role="alert">
                         <small class="text-danger">{{ $errors->first('Jenis') }}.</small>
@@ -90,7 +90,7 @@
               </div>
               <div class="form-group mb-3">
                 <label for="">Jumlah Unit <sup class="text-danger" title="Wajib diisi">*</sup></label>
-                <input type="number" name="Jml_unit" class="form-control {{ $errors->has('Jml_unit') ? ' is-invalid' : '' }}" placeholder="Masukan Jumlah Unit">
+                <input type="number" name="Jml_unit" value="{{old('Jml_unit')}}" class="form-control {{ $errors->has('Jml_unit') ? ' is-invalid' : '' }}" placeholder="Masukan Jumlah Unit">
                 @if ($errors->has('Jml_unit'))
                     <span class="invalid feedback" role="alert">
                         <small class="text-danger">{{ $errors->first('Jml_unit') }}.</small>
@@ -100,7 +100,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Save</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
           </form>
         </div>
@@ -120,7 +120,7 @@
               @csrf
               <div class="form-group mb-3">
                 <label for="">Kode Skema <sup class="text-danger" title="Wajib diisi">*</sup></label>
-                <input type="text" id="Kd_skema" class="form-control {{ $errors->has('Kd_skema') ? ' is-invalid' : '' }}" name="Kd_skema" value="SKM-" placeholder="Kode Skema" aria-label="Kode Skema" aria-describedby="basic-addon1">
+                <input type="text" id="Kd_skema" value="{{old('Kd_skema', 'SKM-')}}" class="form-control {{ $errors->has('Kd_skema') ? ' is-invalid' : '' }}" name="Kd_skema" value="SKM-" placeholder="Kode Skema" aria-label="Kode Skema" aria-describedby="basic-addon1">
                 @if ($errors->has('Kd_skema'))
                     <span class="invalid feedback" role="alert">
                         <small class="text-danger">{{ $errors->first('Kd_skema') }}.</small>
@@ -129,7 +129,7 @@
               </div>
               <div class="form-group mb-3">
                 <label for="">Nama Skema <sup class="text-danger" title="Wajib diisi">*</sup></label>
-                <input type="text" id="Nm_skema" name="Nm_skema" class="form-control {{ $errors->has('Nm_skema') ? ' is-invalid' : '' }}" placeholder="Masukan Nama Skema">
+                <input type="text" id="Nm_skema" value="{{old('Nm_skema')}}" name="Nm_skema" class="form-control {{ $errors->has('Nm_skema') ? ' is-invalid' : '' }}" placeholder="Masukan Nama Skema">
                 @if ($errors->has('Nm_skema'))
                     <span class="invalid feedback" role="alert">
                         <small class="text-danger">{{ $errors->first('Nm_skema') }}.</small>
@@ -138,7 +138,7 @@
               </div>
               <div class="form-group mb-3">
                 <label for="">Jenis <sup class="text-danger" title="Wajib diisi">*</sup></label>
-                <input type="text" id="Jenis" name="Jenis" class="form-control {{ $errors->has('Jenis') ? ' is-invalid' : '' }}" placeholder="Masukan Jenis">
+                <input type="text" id="Jenis" value="{{old('Jenis')}}" name="Jenis" class="form-control {{ $errors->has('Jenis') ? ' is-invalid' : '' }}" placeholder="Masukan Jenis">
                 @if ($errors->has('Jenis'))
                     <span class="invalid feedback" role="alert">
                         <small class="text-danger">{{ $errors->first('Jenis') }}.</small>
@@ -147,7 +147,7 @@
               </div>
               <div class="form-group mb-3">
                 <label for="">Jumlah Unit <sup class="text-danger" title="Wajib diisi">*</sup></label>
-                <input type="number" id="Jml_unit" name="Jml_unit" class="form-control {{ $errors->has('Jml_unit') ? ' is-invalid' : '' }}" placeholder="Masukan Jumlah Unit">
+                <input type="number" id="Jml_unit" value="{{old('Jml_unit')}}" name="Jml_unit" class="form-control {{ $errors->has('Jml_unit') ? ' is-invalid' : '' }}" placeholder="Masukan Jumlah Unit">
                 @if ($errors->has('Jml_unit'))
                     <span class="invalid feedback" role="alert">
                         <small class="text-danger">{{ $errors->first('Jml_unit') }}.</small>
@@ -157,19 +157,20 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Save</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
           </form>
         </div>
       </div>
     </div>
     
-    
-    <!-- Optional: Place to the bottom of scripts -->
-    <script>
-      const myModal = new bootstrap.Modal(document.getElementById('modalId'), [])
-      const myModalEdit = new bootstrap.Modal(document.getElementById('modalIdEdit'), [])
-    
+@endsection
+@section('scripts')
+     <!-- Optional: Place to the bottom of scripts -->
+     <script>
+      const myModal = new bootstrap.Modal(document.getElementById('modalId'))
+      const myModalEdit = new bootstrap.Modal(document.getElementById('modalIdEdit'))
+
       function ubah(id) {
         fetch("{{ url('sertifikasi') }}/" + id).then(function(response) {
             response.json().then(function(resp) {
@@ -188,4 +189,16 @@
         });
       }
     </script>
+
+    @if ($errors->any() && \Session::has('err') == 0)
+        <script>
+          myModal.show();
+        </script>
+    @endif
+
+    @if ($errors->any() && \Session::has('err') == 1)
+        <script>
+          myModalEdit.show();
+        </script>
+    @endif
 @endsection

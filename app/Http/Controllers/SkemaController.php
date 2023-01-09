@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Skema;
+use Illuminate\Auth\Events\Validated;
+use Illuminate\Support\Facades\Validator;
 
 class SkemaController extends Controller
 {
@@ -38,6 +40,7 @@ class SkemaController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'Kd_skema' => 'required|unique:skema,Kd_skema',
             'Nm_skema' => 'required',
@@ -52,6 +55,8 @@ class SkemaController extends Controller
 
         if ($new->save()) {
             return redirect()->route('sertifikasi.index')->with('success', 'Skema berhasil ditambahkan');
+        }else{
+            return redirect()->route('sertifikasi.index')->with('error', 'Skema gagal ditambahkan');
         }
     }
 
@@ -88,14 +93,20 @@ class SkemaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'Kd_skema' => 'required|unique:skema,Kd_skema,'.$id.',Kd_skema',
-            'Nm_skema' => 'required',
-            'Jenis' => 'required',
-            'Jml_unit' => 'required',
-        ],[
-            'Kd_skema.unique' => 'Kode skema sudah digunakan'
-        ], $request->all());
+
+        $validator = Validator::make($request->all(),
+            [
+                'Kd_skema' => 'required|unique:skema,Kd_skema,'.$id.',Kd_skema',
+                'Nm_skema' => 'required',
+                'Jenis' => 'required',
+                'Jml_unit' => 'required',
+            ],[
+                'Kd_skema.unique' => 'Kode skema sudah digunakan'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('sertifikasi.index')->withErrors($validator)->with('err', 'UPD');
+        }
 
         $update = Skema::where('Kd_skema', $id)->first();
         $update->Kd_skema = $request->Kd_skema;
@@ -105,6 +116,8 @@ class SkemaController extends Controller
 
         if ($update->save()) {
             return redirect()->route('sertifikasi.index')->with('success', 'Skema berhasil diperbaharui');
+        }else{
+            
         }
     }
 

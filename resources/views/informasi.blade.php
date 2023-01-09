@@ -13,5 +13,7 @@
             <li>Bootstrap</li>
             <li>Datatable</li>
         </ul>
+
+        <p>Dibuat untuk memenuhi persyaratan kelulusan Sertifikasi BNSP <b>Junior Web Programmer</b></p>
     </div>
 @endsection
